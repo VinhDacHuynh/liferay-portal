@@ -25,6 +25,8 @@ import com.liferay.layout.page.template.model.LayoutPageTemplateStructure;
 import com.liferay.layout.page.template.model.LayoutPageTemplateStructureRel;
 import com.liferay.layout.page.template.service.LayoutPageTemplateStructureLocalService;
 import com.liferay.layout.page.template.service.LayoutPageTemplateStructureRelLocalService;
+import com.liferay.portal.kernel.model.Layout;
+import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.xml.Element;
 
 import java.util.List;
@@ -89,6 +91,7 @@ public class LayoutPageTemplateStructureStagedModelDataHandler
 				_layoutPageTemplateStructureLocalService.
 					fetchLayoutPageTemplateStructure(
 						portletDataContext.getScopeGroupId(),
+						_portal.getClassNameId(Layout.class),
 						importedLayoutPageTemplateStructure.getClassPK());
 		}
 
@@ -185,6 +188,9 @@ public class LayoutPageTemplateStructureStagedModelDataHandler
 	@Reference
 	private LayoutPageTemplateStructureRelLocalService
 		_layoutPageTemplateStructureRelLocalService;
+
+	@Reference
+	private Portal _portal;
 
 	@Reference(
 		target = "(model.class.name=com.liferay.layout.page.template.model.LayoutPageTemplateStructure)",
