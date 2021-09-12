@@ -263,7 +263,7 @@ if (Validator.isNotNull(keywords)) {
 									<i class="icon-folder-open"></i>
 
 									<span class="taglib-text">
-										<%= HtmlUtil.escape(folder.getName()) %>
+										<%= folder.getName() %>
 									</span>
 								</a>
 							</liferay-ui:search-container-column-text>
